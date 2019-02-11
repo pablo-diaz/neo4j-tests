@@ -1,0 +1,68 @@
+create (pablo:User {name:'Pablo Díaz'})
+create (carlos:User {name:'Carlos Carrero'})
+create (roger:User {name:'Roger Álvarez'})
+create (juanjo:User {name:'Juan Rendón'})
+
+create (ch1:Activity {name:'Challenge test 01'})
+
+create 
+ (pablo)-[:HasCreated {createdAt:'2019-02-10 15:30'}]->(ch1),
+ (carlos)-[:Reviews]->(ch1),
+ (roger)-[:ParticipatesIn]->(ch1),
+ (juanjo)-[:ParticipatesIn]->(ch1)
+
+create (tk01:Take {filename:'file01.mp4'})
+create (tk02:Take {filename:'file02.mp4'})
+create (tk03:Take {filename:'file03.mp4'})
+create (tk04:Take {filename:'file04.mp4'})
+
+create
+ (roger)-[:PracticesWith {uploadedAt:'2019-02-11 10:30'}]->(tk01)-[:AsPartOf]->(ch1),
+ (roger)-[:PracticesWith {uploadedAt:'2019-02-11 12:35'}]->(tk02)-[:AsPartOf]->(ch1),
+ (roger)-[:PracticesWith {uploadedAt:'2019-02-13 20:30'}]->(tk03)-[:AsPartOf]->(ch1),
+ (roger)-[:PracticesWith {uploadedAt:'2019-02-14 10:50'}]->(tk04)-[:AsPartOf]->(ch1)
+
+create (sb01:Submission {version:1})
+create (sb02:Submission {version:2})
+
+create
+ (sb01)-[:BasedOn]->(tk01),
+ (sb02)-[:BasedOn]->(tk04)
+
+create
+ (roger)-[:Submitted {submittedAt:'2019-03-01 15:50'}]->(sb01)-[:Completting]->(ch1),
+ (roger)-[:Submitted {submittedAt:'2019-03-05 10:30'}]->(sb02)-[:Completting]->(ch1)
+
+
+create (tk05:Take {filename:'file05.mp4'})
+create (tk06:Take {filename:'file06.mp4'})
+create (tk07:Take {filename:'file07.mp4'})
+
+create
+ (juanjo)-[:PracticesWith {uploadedAt:'2019-02-11 10:30'}]->(tk05)-[:AsPartOf]->(ch1),
+ (juanjo)-[:PracticesWith {uploadedAt:'2019-02-11 12:35'}]->(tk06)-[:AsPartOf]->(ch1),
+ (juanjo)-[:PracticesWith {uploadedAt:'2019-02-13 20:30'}]->(tk07)-[:AsPartOf]->(ch1)
+
+create (sb03:Submission {version:1})
+
+create
+ (sb03)-[:BasedOn]->(tk06)
+
+create
+ (juanjo)-[:Submitted {submittedAt:'2019-03-01 15:50'}]->(sb03)-[:Completting]->(ch1)
+
+create (rv01:Review {score:90})
+create (rv02:Review {score:85})
+create (rv03:Review {score:95})
+
+create
+ (carlos)-[:HasReviewed {reviewedAt:'2019-03-20 15:30'}]->(rv01)-[:Reviewing]->(sb01),
+ (carlos)-[:HasReviewed {reviewedAt:'2019-03-25 10:15'}]->(rv02)-[:Reviewing]->(sb02),
+ (carlos)-[:HasReviewed {reviewedAt:'2019-03-26 20:30'}]->(rv03)-[:Reviewing]->(sb03)
+
+
+match (n) return n
+
+MATCH (n) DETACH DELETE n
+------------------------------------------------------------------------------------------------------------------------------
+
