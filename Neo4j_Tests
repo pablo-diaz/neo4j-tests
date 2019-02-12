@@ -60,9 +60,24 @@ create
  (carlos)-[:HasReviewed {reviewedAt:'2019-03-25 10:15'}]->(rv02)-[:Reviewing]->(sb02),
  (carlos)-[:HasReviewed {reviewedAt:'2019-03-26 20:30'}]->(rv03)-[:Reviewing]->(sb03)
 
-
+------------------------------------------------------------------------------------------------------------------------------
 match (n) return n
+------------------------------------------------------------------------------------------------------------------------------
 
+create (:Company {name:'Compañía 01'})
+
+MATCH (c1:Company {name:'Compañía 01'}),
+  (roger:User {name:'Roger Álvarez'}),
+  (carlos:User {name:'Carlos Carrero'}),
+  (juanjo:User {name:'Juan Rendón'}),
+  (pablo:User {name:'Pablo Díaz'})
+CREATE (roger)-[:WorksAt]->(c1),
+  (carlos)-[:WorksAt]->(c1),
+  (juanjo)-[:WorksAt]->(c1),
+  (pablo)-[:WorksAt]->(c1),
+  (pablo)-[:IsHeadCoachAt]->(c1)
+
+------------------------------------------------------------------------------------------------------------------------------
 MATCH (n) DETACH DELETE n
 ------------------------------------------------------------------------------------------------------------------------------
 
