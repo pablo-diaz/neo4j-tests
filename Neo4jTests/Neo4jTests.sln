@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neo4jTests", "Neo4jTests\Neo4jTests.csproj", "{38F54CED-7709-4225-A33E-132043870F49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StressTests", "StressTests\StressTests.csproj", "{CEBD1EC0-072B-45C2-B770-3448C02DFA70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{38F54CED-7709-4225-A33E-132043870F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38F54CED-7709-4225-A33E-132043870F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38F54CED-7709-4225-A33E-132043870F49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBD1EC0-072B-45C2-B770-3448C02DFA70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBD1EC0-072B-45C2-B770-3448C02DFA70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBD1EC0-072B-45C2-B770-3448C02DFA70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBD1EC0-072B-45C2-B770-3448C02DFA70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
